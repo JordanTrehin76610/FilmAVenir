@@ -1,5 +1,3 @@
-let limite = 19
-
 const options = {
     method: 'GET',
     headers: {
@@ -14,36 +12,22 @@ fetch('https://api.themoviedb.org/3/movie/upcoming?language=fr-FR&region=FR&page
     .then(data => {
         film = data //Stock le json dans une variable js
         console.log(data) //Affiche désormais dans la console le json
-
-        for (let i = 0; i <= limite; i++) {
-            filmAVenir(i)
-            filmInfo(i)
-        }
+        i = +document.getElementById("description").textContent
+        console.log(i)
+        filmInfo(i)
     })
 
-
-function filmAVenir(i) {
-    document.getElementById("list").innerHTML += `
-    <div class="col-lg-3 mb-5">
-        <div class="row titre"><p id="titre${i}">Titre</p></div>
-        <div class="row"><a href="pages/description${i}.html"><img src="" alt="film de la semaine n°${i}" id="photo${i}" class="poster"></a></div>
-        <div class="row">
-            <div class="col"><p id="note${i}">Note</p></div>
-            <div class="col"><p id="date${i}">Date</p></div>
-        </div>
-    </div>`
-}
-
 function filmInfo(i) {
-    document.getElementById(`titre${i}`).textContent = film.results[i].title
-    document.getElementById(`photo${i}`).src = `https://image.tmdb.org/t/p/w500${film.results[i].poster_path}`
+    document.getElementById(`titre`).textContent = film.results[i].title
+    document.getElementById(`photo`).src = `https://image.tmdb.org/t/p/w500${film.results[i].poster_path}`
     note = Math.round(film.results[i].vote_average)
     if (note == 0) {
         note = "Pas encore noté"
     }
-    document.getElementById(`note${i}`).textContent = `${note}/10`
+    document.getElementById(`note`).textContent = `${note}/10`
     let date = film.results[i].release_date
     let tab = date.split("-")
     date = tab.reverse().join("-")
-    document.getElementById(`date${i}`).textContent = date
+    document.getElementById(`date`).textContent = date
+    document.getElementById(`description`).textContent = film.results[i].overview
 }
