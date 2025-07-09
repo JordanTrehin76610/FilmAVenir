@@ -30,4 +30,8 @@ body {
   .Contenue {
     height: 1410vh;
   }
+  .poster {
+    width: 100%;
+    height: 35rem;
+  }
 }/*# sourceMappingURL=styles.css.map */
