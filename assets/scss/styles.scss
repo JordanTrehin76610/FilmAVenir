@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap');
+
+body {
+    height: 100vh;
+    font-family: "Zain", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.2rem;
+}
+
+.bgColor {
+    background-color: rgb(25, 25, 99);
+}
+
+.Contenue {
+    height: 340vh;
+}
+
+.titre {
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.poster {
+    width: 100%;
+    height: 30rem;
+}
+
+@media (max-width: 600px) {
+    .Contenue {
+        height: 1410vh;
+    }
+}
