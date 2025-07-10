@@ -1,4 +1,5 @@
 let limite = 19
+let aFaitRecherche = false
 
 const options = {
     method: 'GET',
@@ -7,7 +8,6 @@ const options = {
         Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwM2I2MWUyZWRjNTE1NDkxNWZjNDg3OTYzZmQyYTRkZSIsIm5iZiI6MTc1MTk2MDYzNS42ODgsInN1YiI6IjY4NmNjYzNiODFiNDY2NzUzNjU0MDMxMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7ek09_wWpL8nKW41DPrA7jX3Kbo4Cv2JgnCGwAfWP4w'
     }
 };
-
 
 fetch('https://api.themoviedb.org/3/movie/upcoming?language=fr-FR&region=FR&page=1', options) //Permet de récupérer les ressources json
     .then(response => response.json()) //Convertit en objet js
@@ -21,12 +21,11 @@ fetch('https://api.themoviedb.org/3/movie/upcoming?language=fr-FR&region=FR&page
         }
     })
 
-
 function filmAVenir(i) {
     document.getElementById("list").innerHTML += `
     <div class="col-lg-3 mb-5">
         <div class="row titre"><p id="titre${i}">Titre</p></div>
-        <div class="row"><a href="pages/description${i}.html"><img src="" alt="film de la semaine n°${i}" id="photo${i}" class="poster"></a></div>
+        <div class="row"><a href="pages/description.html?id=${film.results[i].id}"><img src="" alt="film de la semaine n°${i}" id="photo${i}" class="poster"></a></div>
         <div class="row">
             <div class="col"><p id="note${i}">Note</p></div>
             <div class="col"><p id="date${i}">Date</p></div>
@@ -46,4 +45,23 @@ function filmInfo(i) {
     let tab = date.split("-")
     date = tab.reverse().join("-")
     document.getElementById(`date${i}`).textContent = date
+}
+
+function filmRecherche() {
+
+    recherche = document.getElementById("rechercheFilm").value
+
+
+    fetch(`https://api.themoviedb.org/3/search/movie?query=${recherche}&include_adult=true&language=fr-FR&page=1`, options)
+        .then(res => res.json())
+        .then(data => {
+            film = data //Stock le json dans une variable js
+            console.log(data) //Affiche désormais dans la console le json
+
+            document.getElementById("list").innerHTML = ""
+            for (let i = 0; i < film.results.length; i++) {
+                filmAVenir(i)
+                filmInfo(i)
+            }
+        })
 }

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Film a venir au cinéma</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
@@ -20,6 +21,11 @@
         <p class="h4 text-center text-white">Trier par popularité</p>
     </div>
 
+    <div class="adresse">
+        <input type="word" class="form-control w-100 rounded-0 mx-auto" id="rechercheFilm"
+            placeholder="Recherche: Titre d'un film/mot clé"><button type="button" class="btn blue rounded-0"
+            onclick="filmRecherche()"><i class="bi bi-arrow-right"></i></button>
+    </div>
 
     <!-- Corp -->
     <div class="bgColor Contenue">

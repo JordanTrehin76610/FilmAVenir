@@ -26,6 +26,14 @@ body {
   height: 30rem;
 }
 
+.blue {
+  background-color: rgb(166, 166, 252);
+}
+
+.adresse {
+  display: flex;
+}
+
 @media (max-width: 600px) {
   .poster {
     width: 100%;
