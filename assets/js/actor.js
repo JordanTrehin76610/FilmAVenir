@@ -30,5 +30,5 @@ function rajoutActor(i) {
 function actorInfo(i) {
     document.getElementById(`name${i}`).textContent = `Acteur: ${actor[i].name}`
     document.getElementById(`profil${i}`).src = `https://image.tmdb.org/t/p/w500${actor[i].profile_path}`
-    document.getElementById(`perso${i}`).textContent = `Perso: ${actor[i].character}`
+    document.getElementById(`perso${i}`).textContent = `Rôle: ${actor[i].character}`
 }
