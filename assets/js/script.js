@@ -23,7 +23,7 @@ fetch('https://api.themoviedb.org/3/movie/upcoming?language=fr-FR&region=FR&page
 
 function filmAVenir(i) {
     document.getElementById("list").innerHTML += `
-    <div class="col-lg-3 mb-5">
+    <div class="col-lg-3 mb-5" style="display: inline" id="film${i}">
         <div class="row titre"><p id="titre${i}">Titre</p></div>
         <div class="row"><a href="pages/description.html?id=${film.results[i].id}"><img src="" alt="film de la semaine n°${i}" id="photo${i}" class="poster"></a></div>
         <div class="row">
@@ -61,6 +61,9 @@ function filmRecherche() {
             document.getElementById("list").innerHTML = ""
             for (let i = 0; i < film.results.length; i++) {
                 filmAVenir(i)
+                if (film.results[i].backdrop_path == null || film.results[i].poster_path == null) {
+                    document.getElementById(`film${i}`).style = "display: none"
+                }
                 filmInfo(i)
             }
         })
