@@ -36,6 +36,12 @@ body {
     display: flex;
 }
 
+.profil {
+    width: 60%;
+    margin: auto;
+    margin-bottom: 1rem;
+}
+
 @media (max-width: 600px) {
     .poster {
         width: 60%;
