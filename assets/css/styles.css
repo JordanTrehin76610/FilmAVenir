@@ -35,6 +35,11 @@ body {
   display: flex;
 }
 
+.cat {
+  text-wrap: wrap;
+  font-size: 2rem;
+}
+
 @media (max-width: 600px) {
   .poster {
     width: 100%;

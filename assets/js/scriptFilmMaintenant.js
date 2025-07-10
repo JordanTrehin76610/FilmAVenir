@@ -9,7 +9,7 @@ const options = {
     }
 };
 
-fetch('https://api.themoviedb.org/3/movie/upcoming?language=fr-FR&region=FR&page=1', options) //Permet de récupérer les ressources json
+fetch('https://api.themoviedb.org/3/movie/now_playing?language=fr-FR&region=FR&page=1', options) //Permet de récupérer les ressources json
     .then(response => response.json()) //Convertit en objet js
     .then(data => {
         film = data //Stock le json dans une variable js
@@ -25,7 +25,7 @@ function filmAVenir(i) {
     document.getElementById("list").innerHTML += `
     <div class="col-lg-3 mb-5" style="display: inline" id="film${i}">
         <div class="row titre"><p id="titre${i}">Titre</p></div>
-        <div class="row"><a href="pages/description.html?id=${film.results[i].id}"><img src="" alt="film de la semaine n°${i}" id="photo${i}" class="poster"></a></div>
+        <div class="row"><a href="description.html?id=${film.results[i].id}"><img src="" alt="film de la semaine n°${i}" id="photo${i}" class="poster"></a></div>
         <div class="row">
             <div class="col"><p id="note${i}">Note</p></div>
             <div class="col"><p id="date${i}">Date</p></div>
@@ -46,7 +46,7 @@ function filmInfo(i) {
     const today = new Date().toISOString().split('T')[0]; // "YYYY-MM-DD"
     console.log(today)
     let date = film.results[i].release_date
-    if (date < today) {
+    if (date >= today) {
         document.getElementById(`film${i}`).style = "display: none"
     }
     let tab = date.split("-")
