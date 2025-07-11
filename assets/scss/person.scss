@@ -1,0 +1,51 @@
+body {
+    height: 100%;
+    font-family: "Zain", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.2rem;
+}
+
+.bgColor {
+    background-color: rgb(25, 25, 99);
+}
+
+.Contenue {
+    height: 100%;
+    min-height: 84vh;
+}
+
+.poster {
+    width: 28%;
+    height: 30rem;
+    transition: 0.3s;
+}
+
+.poster:hover {
+    transform: scale(1.2);
+}
+
+.boutonTaille {
+    width: 20rem;
+}
+
+.bio {
+    text-align: justify;
+}
+
+@media (max-width: 600px) {
+    .poster {
+        width: 60%;
+        height: 20rem;
+    }
+
+    .profil:hover {
+        transform: scale(1);
+        transition: 0.3s;
+    }
+
+    .poster:hover {
+        transform: scale(1);
+    }
+
+}

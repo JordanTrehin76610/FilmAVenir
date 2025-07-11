@@ -11,14 +11,13 @@ fetch(`https://api.themoviedb.org/3/movie/${filmId}/credits?language=fr-FR`, opt
         }
     })
 
-
 function rajoutActor(i) {
     document.getElementById("acteur").innerHTML += `<div class="col-lg mt-5">
                     <div class="row">
                         <p id="name${i}">Nom de l'acteur</p>
                     </div>
                     <div class="row">
-                        <img src="" alt="photo de l'acteur" id="profil${i}" class="profil">
+                       <a href="person.html?person=${actor[i].id}"> <img src="" alt="photo de l'acteur" id="profil${i}" class="profil"></a>
                     </div>
                     <div class="row">
                         <p id="perso${i}">Nom du personnage</p>
