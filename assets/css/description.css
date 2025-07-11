@@ -57,4 +57,11 @@ body {
     width: 60%;
     height: 20rem;
   }
+  .profil:hover {
+    transform: scale(1);
+    transition: 0.3s;
+  }
+  .poster:hover {
+    transform: scale(1);
+  }
 }/*# sourceMappingURL=description.css.map */
