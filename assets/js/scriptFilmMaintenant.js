@@ -36,7 +36,7 @@ function filmAVenir(i) {
 function filmInfo(i) {
     document.getElementById(`titre${i}`).textContent = film.results[i].title
     document.getElementById(`photo${i}`).src = `https://image.tmdb.org/t/p/w500${film.results[i].poster_path}`
-    note = Math.round(film.results[i].vote_average)
+    note = Math.round(2 * film.results[i].vote_average) / 2
     if (note == 0) {
         note = "Pas encore noté"
     }
@@ -46,7 +46,7 @@ function filmInfo(i) {
     const today = new Date().toISOString().split('T')[0]; // "YYYY-MM-DD"
     console.log(today)
     let date = film.results[i].release_date
-    if (date >= today) {
+    if (date >= today && aFaitRecherche == false) {
         document.getElementById(`film${i}`).style = "display: none"
     }
     let tab = date.split("-")
@@ -57,6 +57,7 @@ function filmInfo(i) {
 
 function filmRecherche() {
 
+    aFaitRecherche = true
     recherche = document.getElementById("rechercheFilm").value
 
 
