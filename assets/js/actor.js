@@ -33,5 +33,9 @@ function actorInfo(i) {
     } else {
         document.getElementById(`profil${i}`).src = `https://image.tmdb.org/t/p/w500${actor[i].profile_path}`
     }
-    document.getElementById(`perso${i}`).textContent = `Rôle: ${actor[i].character}`
+    if (actor[i].character == "") {
+        document.getElementById(`perso${i}`).textContent = "Rôle inconnu"
+    } else {
+        document.getElementById(`perso${i}`).textContent = `Rôle: ${actor[i].character}`
+    }
 }
