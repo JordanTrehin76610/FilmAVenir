@@ -7,7 +7,7 @@ const options = {
 };
 
 const params = new URLSearchParams(window.location.search); //Regarde les paramètre
-const actorId = params.get('person'); //Regarde le paramètre id qu'on a fait passer dans l'url
+const actorId = params.get('actor'); //Regarde le paramètre id qu'on a fait passer dans l'url
 
 fetch(`https://api.themoviedb.org/3/person/${actorId}?language=fr-FR'`, options) //Permet de récupérer la ressource json du film
     .then(response => response.json()) //Convertit en objet js

@@ -17,7 +17,7 @@ function rajoutActor(i) {
                         <p id="name${i}">Nom de l'acteur</p>
                     </div>
                     <div class="row">
-                       <a href="person.html?person=${actor[i].id}"> <img src="" alt="photo de l'acteur" id="profil${i}" class="profil"></a>
+                       <a href="person.html?actor=${actor[i].id}"> <img src="" alt="photo de l'acteur" id="profil${i}" class="profil"></a>
                     </div>
                     <div class="row">
                         <p id="perso${i}">Nom du personnage</p>
