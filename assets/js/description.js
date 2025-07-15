@@ -24,7 +24,7 @@ fetch(`https://api.themoviedb.org/3/movie/${filmId}?language=fr-FR`, options) //
 function filmInfo(film) {
     document.getElementById(`titre`).textContent = film.title
     document.getElementById(`photo`).src = `https://image.tmdb.org/t/p/w500${film.poster_path}`
-    note = Math.round(film.vote_average) * 2
+    note = Math.round(2 * film.vote_average) / 2
     if (note == 0) {
         note = "Pas encore noté"
     }
@@ -35,7 +35,7 @@ function filmInfo(film) {
     document.getElementById(`date`).textContent = date
     if (film.overview == "") {
         document.getElementById(`description`).textContent = "Pas de description"
-    } else { 
-        document.getElementById(`description`).textContent = film.overview 
+    } else {
+        document.getElementById(`description`).textContent = film.overview
     }
 }

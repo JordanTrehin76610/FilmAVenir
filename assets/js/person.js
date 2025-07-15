@@ -20,7 +20,11 @@ fetch(`https://api.themoviedb.org/3/person/${actorId}?language=fr-FR'`, options)
 
 function acteurInfo() {
     document.getElementById("nom").textContent = actor.name
-    document.getElementById("acteur").src = `https://image.tmdb.org/t/p/w500${actor.profile_path}`
+    if (actor.profile_path == null) {
+        document.getElementById("acteur").src = `../assets/img/inconnu.png`
+    } else {
+        document.getElementById("acteur").src = `https://image.tmdb.org/t/p/w500${actor.profile_path}`
+    }
     switch (actor.gender) {
         case 1:
             genre = "Femme"
@@ -36,12 +40,16 @@ function acteurInfo() {
     }
     document.getElementById("genre").textContent = genre
 
-    let mois = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
-    let naissance = actor.birthday.split("-")
+    mois = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
+    if (actor.birthday == null) {
+        naissance = "Date de naissance inconnue"
+    } else {
+    naissance = actor.birthday.split("-")
     naissance = naissance.reverse()
     moisSelection = naissance[1]
-    naissance[1] = mois[moisSelection-1]
+    naissance[1] = mois[moisSelection - 1]
     naissance = naissance.join(" ")
+    }
     document.getElementById("date").textContent = naissance
 
     document.getElementById("biographie").textContent = actor.biography

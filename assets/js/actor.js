@@ -28,6 +28,10 @@ function rajoutActor(i) {
 
 function actorInfo(i) {
     document.getElementById(`name${i}`).textContent = `Acteur: ${actor[i].name}`
-    document.getElementById(`profil${i}`).src = `https://image.tmdb.org/t/p/w500${actor[i].profile_path}`
+    if (actor[i].profile_path == null) {
+        document.getElementById(`profil${i}`).src = `../assets/img/inconnu.png`
+    } else {
+        document.getElementById(`profil${i}`).src = `https://image.tmdb.org/t/p/w500${actor[i].profile_path}`
+    }
     document.getElementById(`perso${i}`).textContent = `Rôle: ${actor[i].character}`
 }
