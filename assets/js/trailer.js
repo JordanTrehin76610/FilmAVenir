@@ -5,14 +5,25 @@ fetch(`https://api.themoviedb.org/3/movie/${filmId}/videos?language=fr-FR`, opti
         if (trailerDispo > 0) {
             // i = Math.floor(Math.random() * data.results.length)
             // console.log(`trailer choisi: ${i}`)
+            i = 0
+            type = true
             film = data
             console.log(film)
-            film = data.results[0].key
+            film = data.results[i]
+            while (film.type != "Trailer" && type == true) {
+                i++
+                film = data.results[i]
+                if (i >= trailerDispo) {
+                    type = false
+                }
+            }
+            film = data.results[i].key
         }
         console.log(`Nombre de trailer dispo: ${trailerDispo}`)
         document.getElementById("videoDesktop").src = `https://www.youtube.com/embed/${film}`
         document.getElementById("videoMobile").src = `https://www.youtube.com/embed/${film}`
-        if (trailerDispo <= 0) {
+        document.getElementById("youtubeLink").href = `https://www.youtube.com/watch?v=${film}`
+        if (trailerDispo <= 0 || type == false) {
             document.getElementById("videoDesktop").style = "display: none"
             document.getElementById("videoMobile").style = "display: none"
         }
