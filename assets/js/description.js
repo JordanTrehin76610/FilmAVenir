@@ -17,9 +17,7 @@ fetch(`https://api.themoviedb.org/3/movie/${filmId}?language=fr-FR`, options) //
         document.getElementById("introuvable").style.display = "block"
         document.getElementById("corp").style.display = "none"
         } else {
-        console.log(data) //Affiche désormais dans la console le json
         i = +document.getElementById("description").textContent
-        console.log(i)
         filmInfo(film)
     }})
 

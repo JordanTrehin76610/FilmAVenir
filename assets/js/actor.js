@@ -3,7 +3,6 @@ fetch(`https://api.themoviedb.org/3/movie/${filmId}/credits?language=fr-FR`, opt
     .then(data => {
         actor = data.cast
         actor.sort((a, b) => b.popularity - a.popularity) //Trie par rapport à la popularité >
-        console.log(actor)
         document.getElementById("acteur").innerHTML = ""
         for (let i = 0; i < 5; i++) {
             rajoutActor(i)
