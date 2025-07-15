@@ -24,7 +24,7 @@ fetch(`https://api.themoviedb.org/3/movie/${filmId}?language=fr-FR`, options) //
 function filmInfo(film) {
     document.getElementById(`titre`).textContent = film.title
     document.getElementById(`photo`).src = `https://image.tmdb.org/t/p/w500${film.poster_path}`
-    note = Math.round(film.vote_average)
+    note = Math.round(film.vote_average) * 2
     if (note == 0) {
         note = "Pas encore noté"
     }
