@@ -13,12 +13,15 @@ fetch(`https://api.themoviedb.org/3/movie/${filmId}?language=fr-FR`, options) //
     .then(response => response.json()) //Convertit en objet js
     .then(data => {
         film = data //Stock le json dans une variable js
+        if (film.status_code == 34) {
+        document.getElementById("introuvable").style.display = "block"
+        document.getElementById("corp").style.display = "none"
+        } else {
         console.log(data) //Affiche désormais dans la console le json
         i = +document.getElementById("description").textContent
         console.log(i)
         filmInfo(film)
-    })
-
+    }})
 
 
 function filmInfo(film) {

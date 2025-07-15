@@ -13,8 +13,13 @@ fetch(`https://api.themoviedb.org/3/person/${actorId}?language=fr-FR'`, options)
     .then(response => response.json()) //Convertit en objet js
     .then(data => {
         actor = data
+        if (actor.status_code == 34) {
+        document.getElementById("introuvable").style.display = "block"
+        document.getElementById("corp").style.display = "none"
+        } else {
         console.log(actor)
         acteurInfo()
+        }
     })
 
 

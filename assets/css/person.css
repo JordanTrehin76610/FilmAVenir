@@ -6,6 +6,10 @@ body {
   font-size: 1.2rem;
 }
 
+.INTROUVABLE {
+  color: white;
+}
+
 .bgColor {
   background-color: rgb(25, 25, 99);
 }
